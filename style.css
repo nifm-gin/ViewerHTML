@@ -1,0 +1,21 @@
+/* 
+com
+*/
+
+.img {
+/*  opacity: 1;
+  display: block;*/
+  width: 100;
+  height: auto;
+  transition: .2s ease;
+/*  backface-visibility: hidden;*/
+}
+
+.img:hover {
+  /*opacity: 1;*/
+ /* display: block;*/
+  width: 250;
+  height: auto;
+  transition: .2s ease;
+/*  backface-visibility: hidden;*/
+}
