@@ -1,21 +1,70 @@
-/* 
-com
-*/
+/*.row {
+  display: flex;
+}
+.column {
+	margin: 15px 25px 0 25px;
+	padding: 0;
+}
+.column:last-child {
+	padding-bottom: 60px;
+}
+.column::after {
+	content: '';
+	clear: both;
+	display: block;
+}
+.column div {
+	position: relative;
+	float: left;
+	width: 200px;
+	height: 1500px;
+	margin: 0 0 0 35px;
+	padding: 0;
+}
+.colonne div:first-child {
+	margin-left: 0;
+}
+div {
+	width: 200px;
+	height: 150px;
+	margin: 0;
+	padding: 0;
+	background: #F4F4F4;
+	overflow: hidden;}*/
 
-.img {
-/*  opacity: 1;
-  display: block;*/
+ /* Three image containers (use 25% for four, and 50% for two, etc) */
+.column {
+  float: left;
+  /*width: 33.3%*/;
+  margin-left: 0px;
+  padding-right: 15px;
+  margin-right: 20px;
+}
+
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+  margin-bottom: 15px;
+} 
+
+img { 
   width: 100;
-  height: auto;
-  transition: .2s ease;
-/*  backface-visibility: hidden;*/
+/*  transform-origin: left top;
+  -webkit-transform: scale(1);
+  transform: scale(1);*/
+ /* -webkit-transition: .2s ease-in-out;
+  transition: .2s ease;*/
+/*  position: relative;
+  z-index: 0;*/
 }
 
-.img:hover {
-  /*opacity: 1;*/
- /* display: block;*/
-  width: 250;
-  height: auto;
-  transition: .2s ease;
-/*  backface-visibility: hidden;*/
+/*img:hover {
+	transform-origin: 0 0 0
+	-webkit-transform: scale(5);
+	transform: scale(5);
+	position: relative;
+  	z-index: 1;
 }
+*/

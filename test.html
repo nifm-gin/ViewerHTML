@@ -1,16 +1,54 @@
 <html>
-    <head>
-	<link rel="stylesheet" href="style.css" />	
+    <head> 
+    <link rel="stylesheet" href="style.css" />	
+    <meta charset='utf-8'></meta>
+    <script src="jquery-3-4-1.js"></script>
     </head>
+
     <body>
-    	<!-- <img src="./img/T1BW.png" /> -->
-   		<img class='img' src="./img/T1BW.png" /> 
-   		<img class='img' src="./img/T2BW.png" />
-   		<img class='img' src="./img/T1Blue.png" />
-   		<img class='img' src="./img/T2Blue.png" />
-   		<img class='img' src="./img/T1Pink.png" />
-   		<img class='img' src="./img/T2Pink.png" />
-   		<img class='img' src="./img/T1Green.png" />
-   		<img class='img' src="./img/T2Green.png" />
+      <div class='row'>
+        <div class="column">
+   		      <img src="./img/T1BW.png" id="A0Ref"/> 
+        </div>
+        <div class="column">
+            <img src="./img/T2BW.png" id="A1Ref"/>    
+        </div>
+      </div>
+
+      <div class='row'>
+        <div class="column">
+          <img onmouseenter="mouseEnter(this);" onmouseleave="mouseLeave(this);" src="./img/T1Pink.png" id="A0Pink" width=100; />
+        </div>
+        <div class="column">
+          <img src="./img/T2Pink.png" id="A1Pink" />
+        </div>
+      </div>
+
+      <div class='row'>
+        <div class="column">
+          <img src="./img/T1Blue.png" id="A0Blue"/>
+        </div>
+        <div class="column">
+          <img src="./img/T2Blue.png" id="A1Blue"/>
+        </div>
+      </div>
+
+      <div class='row'>
+        <div class="column">
+          <img src="./img/T1Green.png" id="A0Green"/>
+        </div>
+        <div class="column">
+          <img src="./img/T2Green.png" id="A1Green"/>
+        </div>
+      </div>
+
+
+      <!-- <div>
+      <div><img src="./img/T2BW.png" /> </div>
+      <div><img src="./img/T2Blue.png" /> </div>
+      <div><img src="./img/T2Pink.png" /> </div>
+      <div><img src="./img/T2Green.png" /> </div>
+      </div> -->
+      <script src="test.js"></script>
     </body>
 </html>
