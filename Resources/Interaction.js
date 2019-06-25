@@ -51,13 +51,14 @@ function singleClick(e) {
 };
 
 function showMap(e) {
+	var Path = "HTML/";
 	var mapToShow = document.getElementById("mapToDisplay");
 	switch (mapToShow.value){
-		case "Vf": $("#includedContent").load("TableVf.html"); break;
-		case "VSI": $("#includedContent").load("TableVSI.html"); break;
-		case "SO2": $("#includedContent").load("TableSO2.html"); break;
-		case "DH2O": $("#includedContent").load("TableDH2O.html"); break;
-		case "T2": $("#includedContent").load("TableT2.html"); break;
+		case "Vf": $("#includedContent").load(Path+"TableVf.html"); break;
+		case "VSI": $("#includedContent").load(Path+"TableVSI.html"); break;
+		case "SO2": $("#includedContent").load(Path+"TableSO2.html"); break;
+		case "DH2O": $("#includedContent").load(Path+"TableDH2O.html"); break;
+		case "T2": $("#includedContent").load(Path+"TableT2.html"); break;
 
 	}
 }
