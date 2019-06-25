@@ -1,3 +1,6 @@
+// var OriginalWidth = document.getElementById('A0Ref').naturalWidth;
+// var OriginalHeight = document.getElementById('A0Ref').naturalHeight;
+
 function singleClick(e) {
 
 	// Applies adaptative zoom when clicking on an image
