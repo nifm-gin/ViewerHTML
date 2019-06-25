@@ -49,3 +49,15 @@ function singleClick(e) {
 			break;
     }; //end switch   
 };
+
+function showMap(e) {
+	var mapToShow = document.getElementById("mapToDisplay");
+	switch (mapToShow.value){
+		case "Vf": $("#includedContent").load("TableVf.html"); break;
+		case "VSI": $("#includedContent").load("TableVSI.html"); break;
+		case "SO2": $("#includedContent").load("TableSO2.html"); break;
+		case "DH2O": $("#includedContent").load("TableDH2O.html"); break;
+		case "T2": $("#includedContent").load("TableT2.html"); break;
+
+	}
+}

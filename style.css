@@ -1,4 +1,17 @@
 /* Three image containers (use 25% for four, and 50% for two, etc) */
+.selTable {
+	max-width: 30%;
+	margin: 0;
+	padding: 0;
+	font-weight: bold;
+	font-size: 12px;
+}
+
+.selTable select {
+	font-weight: bold;
+	font-size: 12px;
+}
+
 table {
 	/*Defines some attributes for table environment*/
 	margin-left: -20px;
