@@ -51,8 +51,8 @@ function singleClick(e) {
 };
 
 function showMap(e) {
+    // loads the table corresponding to user selection
 	var Path = "HTML/";
 	var mapToShow = document.getElementById("mapToDisplay");
-    console.log(Path+"Table"+mapToShow.value+".html")
     $("#includedContent").load(Path+"Table"+mapToShow.value+".html");
 };
