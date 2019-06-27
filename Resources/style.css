@@ -35,8 +35,10 @@ th {
 
 img { 
 	/*Defines some attributes for images*/
-  width: 100;
+  /*width: 100;
   height: 129;
+  filter: contrast(50%);*/
+  display: none;
 }
 
 .rotate {

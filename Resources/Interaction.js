@@ -50,9 +50,61 @@ function singleClick(e) {
     }; //end switch   
 };
 
+function draw() {
+
+  // Boucle à travers toutes les images
+  console.log(document.images.length);
+  for (var i = 0; i < document.images.length; i++) {
+      // Crée un élément canvas
+      // console.log('Exec2');
+      canvas = document.createElement('canvas');
+      canvas.setAttribute('width', 100);
+      canvas.setAttribute('height', 100);
+
+      // Insère avant l'image
+      document.images[i].parentNode.insertBefore(canvas,document.images[i]);
+      ctx = canvas.getContext('2d');
+      // Dessine l'image sur canvas
+      ctx.drawImage(document.images[i], 0, 0, 25, 25);
+      console.log('Done');
+  	};
+}
+
 function showMap(e) {
     // loads the table corresponding to user selection
 	var Path = "HTML/";
 	var mapToShow = document.getElementById("mapToDisplay");
-    $("#includedContent").load(Path+"Table"+mapToShow.value+".html");
+    $("#includedContent").load(Path+"Table"+mapToShow.value+".html", function() {
+    	Srcs = getSources();
+    	promiseOfAllImages(Srcs)
+    		.then(function () {
+    			draw();
+    		})
+    } );
 };
+
+var promiseOfAllImages = function (Srcs) {
+  // Wait until ALL images are loaded
+  return Promise.all(
+    Srcs.map(function (s) {
+      // Load each tile, and "resolve" when done
+      return new Promise(function (resolve) {
+        var img = new Image();
+        img.src = s;
+        img.onload = function () {
+          // Image has loaded... resolve the promise!
+          resolve(img);
+        };
+      });
+    })
+  );
+};
+
+function getSources() {
+	var Imgs = document.images; 
+	var imgSrcs = [];
+	for (var i =0; i<Imgs.length; i++) {
+  	imgSrcs.push(Imgs[i].src);
+	}
+	return imgSrcs
+}
