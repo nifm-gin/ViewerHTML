@@ -12,5 +12,5 @@ The idea is to have a module on MP3 or populse_mia that generates the img/ folde
 ## To do
 * Write MP3 module that creates .png files, .txt files with list of animals, and .html file.
 * Add more interaction depending on needs (python mpld3 or bokeh pages?)
-* Zooming requires 2 images so far (=lot of redundant information). If critical, implement sprites strategy in css.
-* Aspects ratios are hard coded so far --> Problem?
+* ~~Zooming requires 2 images so far (=lot of redundant information). If critical, implement sprites strategy in css.~~
+* ~~Aspects ratios are hard coded so far --> Problem?~~
