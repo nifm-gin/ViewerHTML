@@ -66,6 +66,7 @@ function drawAll() {
       // Dessine l'image sur canvas
       ctx.drawImage(document.images[i], 0, 0);
       // console.log('Done');
+      $('#'+document.images[i].id).data('OriValues', ctx.getImageData(0,0,canvas.width, canvas.height));
   	};
 }
 
@@ -75,7 +76,7 @@ function computeScale(isRef) { // WIP
 	var fracWidth = 0.3; // Target fraction of width after scale
 	// The aim is to have a constant size after scale, no matter the window zoom
 	var S = (fracWidth * $('html').innerWidth()) / 100;
-	console.log(S);
+	// console.log(S);
 	if (S >=1) {
 		switch (isRef){
 			case 0:
@@ -103,8 +104,10 @@ function showMap(e) {
     		})
     		.then(function () {
     			drawAll();
-    		})
+    		})		
     } );
+    // $('#brightRange').value = 5;
+    // $('#brightRange').data('LastVal', 5);
 };
 
 var promiseOfAllImages = function (Srcs) {
@@ -149,3 +152,45 @@ function getSources() {
 	}
 	return imgSrcs
 }
+
+function brightAdjust() {
+	var slider = document.getElementById("brightRange")
+	// if (typeof($('#brightRange').data('LastVal')) === 'undefined') {
+	// 	$('#brightRange').data('LastVal', 5);
+	// } 
+	var value = slider.value;//$('#brightRange').data('LastVal');
+	// console.log(value)
+	for (var i = 0; i < document.images.length; i++) {
+		var canvas = document.images[i].previousElementSibling;
+		var ctx = canvas.getContext('2d');
+		var imgDataOri = $("#"+document.images[i].id).data('OriValues');
+		var imgData = ctx.getImageData(0,0, canvas.width, canvas.height);
+		var MOri = 0;
+		var MUp = 0;
+		for (var pixel = 0; pixel < imgData.data.length; pixel++) {
+			// MOri = MOri + imgDataOri.data[pixel];
+			tmp = imgDataOri.data[pixel]+parseInt(value,10);
+			if (tmp > 255) {
+				imgData.data[pixel] = 255;
+			} else if (tmp < 0) {
+				imgData.data[pixel] = 0;
+			} else {
+				imgData.data[pixel] = tmp;
+			}
+			// MUp = MUp + imgData.data[pixel];
+		};
+		// console.log(MOri/imgData.data.length)
+		// console.log(MUp/imgData.data.length)
+		ctx.putImageData(imgData, 0, 0);
+	};
+	// $('#brightRange').data('LastVal', slider.value);
+}
+
+function brightInit() {
+	console.log('trig');
+	$('#brightRange').data('LastVal', parseInt(0,10));
+}
+// function getLastValue(slider) {
+// 	$(slider).data('LastVal', slider.value);
+// 	console.log(slider)
+// }
