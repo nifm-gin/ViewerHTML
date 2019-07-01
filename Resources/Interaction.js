@@ -1,49 +1,43 @@
 // var OriginalWidth = document.getElementById('A0Ref').naturalWidth;
 // var OriginalHeight = document.getElementById('A0Ref').naturalHeight;
 
-function singleClick(e) {
+function singleClick(canvas) {
 
 	// Applies adaptative zoom when clicking on an image
 	// If the image is not a reference, it is replaced by the 'large' image
-	var ctx = e.getContext('2d');
-	var currImg = e.nextElementSibling;
-	// var currImg = document.getElementById(e.id); //Get current image
-
+	var ctx = canvas.getContext('2d');
+	var currImg = canvas.nextElementSibling;
 	switch (currImg.classList.contains("zoomed")){
 
 		case false:	// Image is not zoomed
 			currImg.classList.add('zoomed');
 			// Distinguish references and maps for scaling 
-			if (currImg.id.includes("Ref") != true) { // Image is not a Ref
-				const isRef = 0;
-			    var newName = currImg.src.slice(0,-4)+"Large.png";
-			    currImg.src = newName;
-			    S = computeScale(isRef);
-			    Ratio = (currImg.naturalHeight / currImg.naturalWidth)*100;
-			    $(e).height(Ratio); //Ratio (h/w) *100
 
-			    ctx.clearRect(0, 0, e.width, e.height);
-		    	ctx.drawImage(currImg, 0, 0, e.width,e.height);
+			if (currImg.closest('tr').rowIndex > 1) { // Image is not a Ref because not on first row (row 0 = names)
+				const isRef = 0;
+				var RefImage = $('#includedContent').find('tr:eq(1)').find('td:eq('+currImg.closest('td').cellIndex+')')[0].lastElementChild;
+			    S = computeScale(isRef);
+			    canvas.height = canvas.height/2; //Ratio 
+			    ctx.clearRect(0, 0, canvas.width, canvas.height);
+		    	ctx.drawImage(currImg, 0, 0, canvas.width/2, canvas.height);
+		    	ctx.drawImage(RefImage, currImg.width/2, 0, canvas.width/2, canvas.height);
 
 		    } else { // Image is a Ref
 		    	const isRef = 1;
 		    	S = computeScale(isRef);
 		    };
-		    $(e).css({"transform-origin":"0 0 0", "-webkit-transform": "scale("+S+")", "position": "relative", "z-index": "1", "-webkit-transition": ".1s ease-out", "transition": ".1s ease-out"})
+		    $(canvas).css({"transform-origin":"0 0 0", "-webkit-transform": "scale("+S+")", "position": "relative", "z-index": "1", "-webkit-transition": ".1s ease-out", "transition": ".1s ease-out"})
 		    break;
 
 		case true:
-			if (currImg.id.includes("Ref") != true) {
-		    	var nameShort = currImg.src.slice(0,-9);
-		    	currImg.src=nameShort+".png";
-		    	Ratio = (currImg.naturalHeight / currImg.naturalWidth)*100;
-		    	$(e).height(Ratio);
-		    }
-
 			currImg.classList.remove('zoomed');
-			$(e).css({"transform-origin":"0 0 0", "-webkit-transform": "scale(1)", "position": "relative", "z-index": "0", "-webkit-transition": ".1s ease-out", "transition": ".1s ease-out"})
-			ctx.clearRect(0, 0, e.width, e.height);
-			ctx.drawImage(currImg, 0,0)	;
+			$(canvas).css({"transform-origin":"0 0 0", "-webkit-transform": "scale(1)", "position": "relative", "z-index": "0", "-webkit-transition": ".0s ease-out", "transition": ".0s ease-out"})
+			ctx.clearRect(0, 0, canvas.width, canvas.height);
+			
+			if (currImg.closest('tr').rowIndex > 1) { // Image is not a Ref because not on first row (row 0 = names)
+				canvas.height = 2* canvas.height;
+		    }
+		    ctx.drawImage(currImg, 0,0);
 			break;
 		
     }; //end switch   
