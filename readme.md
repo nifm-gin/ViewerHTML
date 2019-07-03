@@ -14,3 +14,4 @@ The idea is to have a module on MP3 or populse_mia that generates the img/ folde
 * Add more interaction depending on needs (python mpld3 or bokeh pages?)
 * ~~Zooming requires 2 images so far (=lot of redundant information). If critical, implement sprites strategy in css.~~
 * ~~Aspects ratios are hard coded so far --> Problem?~~
+* Left margin's width is dependent on the width on what's written into it, might be a problem for long label names
