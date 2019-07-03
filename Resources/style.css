@@ -51,6 +51,7 @@ img {
 
 canvas {
 	width: 100px;
+	image-rendering: crisp-edges;
 }
 
 

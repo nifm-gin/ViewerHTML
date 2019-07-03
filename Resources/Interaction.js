@@ -13,7 +13,6 @@ switch (currImg.classList.contains("zoomed")){
 			var refImg = $('#includedContent').find('tr:eq(1)').find('td:eq('+currImg.closest('td').cellIndex+')')[0].lastElementChild;
 		    S = computeScale(isRef);
 		    canvas.height = canvas.height/2; //Ratio
-		    console.log(canvas.width, canvas.height) 
 		    ctx.clearRect(0, 0, canvas.width, canvas.height);
 		    ctx.drawImage(currImg, 0, 0, canvas.width/2, canvas.height);
 	    	ctx.drawImage(refImg, currImg.width/2, 0, canvas.width/2, canvas.height);
