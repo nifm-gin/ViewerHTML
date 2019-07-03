@@ -82,7 +82,7 @@ function showMap(e) {
 	// loads the table corresponding to user selection
 	var Path = "HTML/";
 	var mapToShow = document.getElementById("mapToDisplay");
-	$("#includedContent").load(Path+"Table"+mapToShow.value+".html", function() {
+	$("#includedContent").load(Path+mapToShow.value+".html", function() {
 		Srcs = getSources();
 		promiseOfAllImages(Srcs)
 			.then(function () {
