@@ -10,8 +10,15 @@ img/ contains .png images that are displayed by ViewerDemo.html. Visual settings
 The idea is to have a module on MP3 or populse_mia that generates the img/ folder and the corresponding .html file for easy and interactive visualisation.
 
 ## To do
-* Write MP3 module that creates .png files, .txt files with list of animals, and .html file.
+
 * Add more interaction depending on needs (python mpld3 or bokeh pages?)
+* Left margin's width is dependent on the width on what's written into it, might be a problem for long label names.
+Rotation results in overlap for long names
 * ~~Zooming requires 2 images so far (=lot of redundant information). If critical, implement sprites strategy in css.~~
 * ~~Aspects ratios are hard coded so far --> Problem?~~
-* Left margin's width is dependent on the width on what's written into it, might be a problem for long label names
+* ~~Write MP3 module that creates .png files, .txt files with list of animals, and .html file.~~
+
+## Enhancement
+* Add colormap option in the MP3 module
+* Add dynamic contrast range in addition to existing brightness control
+
