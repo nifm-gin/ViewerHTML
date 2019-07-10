@@ -12,7 +12,7 @@ switch (currImg.classList.contains("zoomed")){
 			const isRef = 0;
 			var refImg = $('#includedContent').find('tr:eq(1)').find('td:eq('+currImg.closest('td').cellIndex+')')[0].lastElementChild;
 		    S = computeScale(isRef);
-		    canvas.height = canvas.height/2; //Ratio
+		    canvas.width = 2* canvas.width;
 		    ctx.clearRect(0, 0, canvas.width, canvas.height);
 		    ctx.drawImage(currImg, 0, 0, canvas.width/2, canvas.height);
 	    	ctx.drawImage(refImg, currImg.width/2, 0, canvas.width/2, canvas.height);
@@ -32,7 +32,7 @@ switch (currImg.classList.contains("zoomed")){
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
 		
 		if (currImg.closest('tr').rowIndex > 1) { // Image is not a Ref because not on first row (row 0 = names)
-			canvas.height = 2* canvas.height;
+			canvas.width = canvas.width/2;
 	    }
 	    ctx.drawImage(currImg, 0,0);
 	    brightAdjustOnOne([currImg]);
