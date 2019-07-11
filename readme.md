@@ -11,6 +11,7 @@ The idea is to have a module on MP3 or populse_mia that generates the img/ folde
 
 ## To do
 
+* Add dynamic contrast range in addition to existing brightness control
 * Add more interaction depending on needs (python mpld3 or bokeh pages?)
 * Left margin's width is dependent on the width on what's written into it, might be a problem for long label names.
 Rotation results in overlap for long names
@@ -20,5 +21,4 @@ Rotation results in overlap for long names
 
 ## Enhancement
 * Add colormap option in the MP3 module
-* Add dynamic contrast range in addition to existing brightness control
 
