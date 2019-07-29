@@ -1,3 +1,4 @@
+# !!!No longer works on Firefox 68 and higher, needs to be fixed!!!
 # HTML database viewer
 
 Create an HTML viewer able to display one slice per animal 
