@@ -1,4 +1,4 @@
-# !!!No longer works on Firefox 68 and higher, needs to be fixed!!!
+# !!!See fix for Firefox 68 and higher below!!!
 # HTML database viewer
 
 Create an HTML viewer able to display one slice per animal 
@@ -19,7 +19,14 @@ Rotation results in overlap for long names
 * ~~Zooming requires 2 images so far (=lot of redundant information). If critical, implement sprites strategy in css.~~
 * ~~Aspects ratios are hard coded so far --> Problem?~~
 * ~~Write MP3 module that creates .png files, .txt files with list of animals, and .html file.~~
+* Write cleaner fix for Firefox issues, using ```XMLHttpRequest``` or ```Fetch``` as suggested [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSRequestNotHttp)
 
 ## Enhancement
 * Add colormap option in the MP3 module
 
+## For Firefox 68 and higher:
+* Open a new tab and type ```about:config``` in address bar
+* Click on __I’ll be careful, I promise!__ (and be careful)
+* In search bar type ```privacy.file_unique_origin```
+* Double click on the result to set value to __False__
+* Restart Firefox
